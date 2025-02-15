@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>upload content</title>
+ <link rel="icon" type="images/x-icon" href="https://png.pngtree.com/element_our/png/20190103/vector-cloud-upload-icon-png_308699.jpg">
+<style>
+  div, h1, h2 {
+    text-align: center;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+ background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsRvTRS2oQVNXj79vsn0iLlHwDnbeAnT50f6JenBSNAQ1KP9wFqjnl4yesCiwvKe007MjLZm8Mjuk&usqp=CAU&ec=48665699");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+ 
+  }
+
+  h1, h2 {
+    text-align: center;
+  }
+
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  label {
+    display: block;
+  }
+
+  input[type="text"],
+  input[type="text area"],
+  input[type="tel"],
+  input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none; /* Remove border */
+    border-radius: 0; /* Remove border radius */
+    box-sizing: border-box; /* Add box-sizing property */
+
+  }
+
+  input[type="upload"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+  }
+
+  input[type="upload"]:hover {
+    background-color:green;
+  }
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+  }
+
+
+
+  .hidden {
+    display: none;
+  }
+</style>
+
+  <script>
+    function showForm(formId) {
+      var forms = document.getElementsByClassName("form");
+      for (var i = 0; i < forms.length; i++) {
+        forms[i].classList.add("hidden");
+      }
+      document.getElementById(formId).classList.remove("hidden");
+    }
+  </script>
+</head>
+<body>
+  <h1>UPLOAD CONTENT  </h1>
+  <button onclick="showForm('upload')">upload</button>
+  
+
+  <div id="upload" class="form hidden">
+    <h2>upload</h2>
+    <form action="http://localhost/project/upload.php" method="POST">
+      <!-- Registration form fields -->
+      <label for="Title">Title:</label>
+      <input type="text" id="Title" name="title" required><br><br>
+      <label for="content">content :</label>
+      <input type="text area" id="content" name="content" required><br><br>
+      <label for="place">place:</label>
+      <input type="text" id="place" name="place" required><br><br>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required><br><br>
+
+<input type="submit" value="upload">
+
+    </form>
+  </div>
+
+
+  <script>
+    function showForm(formId) {
+      var forms = document.getElementsByClassName("form");
+      for (var i = 0; i < forms.length; i++) {
+        forms[i].classList.add("hidden");
+      }
+      document.getElementById(formId).classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>

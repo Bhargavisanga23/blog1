@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration and Login Form</title>
+  <link rel="icon" type="images/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7dKETEvfjdZeEa1hazF4JHJ1vTDNa5NMPDtc0O17wdB24r1qmSJQX_V_abj01B3D-Ha3sH-f8CBQ&usqp=CAU&ec=48665699">
+  <style>
+    h1, body {
+    }
+
+    div, h1, h2 {
+      text-align: center;
+    }
+
+    h1, h2 {
+      color: black;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: white;
+      background-image: url("https://www.jeronone.com/wp-content/uploads/2017/11/blogging-img.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: black;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      color: black;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    label {
+      display: block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: none; /* Remove border */
+      border-radius: 0; /* Remove border radius */
+      box-sizing: border-box; /* Add box-sizing property */
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      color: white;
+      border: none;
+      border-radius: 0px;
+      cursor: pointer;
+      background-color: black;
+    }
+
+    input[type="submit"]:hover {
+      background-color: grey;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+
+  <script>
+    function showForm(formId) {
+      var forms = document.getElementsByClassName("form");
+      for (var i = 0; i < forms.length; i++) {
+        forms[i].classList.add("hidden");
+      }
+      document.getElementById(formId).classList.remove("hidden");
+    }
+  </script>
+</head>
+<body>
+<div style="position:absolute;left:1000px;top:150px;">
+  <h1>Registration and Login</h1>
+  <button onclick="showForm('registration')">Register</button>
+  <button onclick="showForm('login')">Login</button>
+
+  <div id="registration" class="form hidden">
+    <h2>Registration</h2>
+    <form action="http://localhost/project/phps.php" method="POST">
+      <!-- Registration form fields -->
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="phonenumber">Phone Number:</label>
+      <input type="tel" id="phonenumber" name="phonenumber" required><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <label for="confirmpassword">Confirm Password:</label>
+      <input type="password" id="confirmpassword" name="confirmpassword" required><br><br>
+      <input type="submit" value="Register">
+    </form>
+  </div>
+
+  <div id="login" class="form hidden">
+    <h2>Login</h2>
+     <!-- Login form fields -->
+      <label for="loginUsername">Username:</label>
+      <input type="text" id="loginUsername" name="loginUsername" required><br><br>
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" name="loginPassword" required><br><br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</div>
+<script>
+  function showForm(formId) {
+    var forms = document.getElementsByClassName("form");
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].classList.add("hidden");
+    }
+    document.getElementById(formId).classList.remove("hidden");
+  }
+</script>
+</body>
+</html>

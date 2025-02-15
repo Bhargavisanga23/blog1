@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Posts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:black;
+            background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRohl5yL5g-wjdtTRKJzZsQCVcMZW_yOkZ-lGwec-8VdQ&usqp=CAU&ec=48665699");
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-attachment:fixed;
+             background-position:center;
+            
+            margin: 0;
+            padding: 20px;
+<div style="width:1000px;height:150px;margin:0px auto;">
+<!..image logo division in header..>
+<div style="width:150px;height:150px;float:left;">
+<img src="C:\Users\baaru\OneDrive\Pictures\UAIS1292.JPG"style="width:150px;height:150px;border-radius:50%;">
+</div>
+<!text division in header>
+<div style="width:850px;height:150px;margin-left:150px;">
+<br>
+<div style="text-align:center;font-size:100px;font-family:arial black;text-shadow:5px 5px dodgerblue:">
+BLOG NEWS
+</div>
+</div>
+</div>
+        }
+
+        h1 {
+            color:black;
+            text-align:center;
+font-size:50px;
+        }
+
+        .post {
+            color:black;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post h2 {
+            color:black;
+            margin-top: 0;
+text-align:center;
+font-size:20px;
+        }
+
+        .post p {
+            color:black;
+            margin-bottom: 10px;
+            text-align:center;
+font-size:10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+
+    <?php
+    // Connect to the database
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "blog";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Fetch random data from the "upload" table
+    $sql = "SELECT title, content, place, date FROM upload ORDER BY RAND() LIMIT 1";
+    $result = $conn->query($sql);
+
+    // Display the data
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<div class='post'>";
+            echo "<h2>TITLE:" . $row["title"] . "</h2>";
+            echo "<h2>CONTENT:" . $row["content"] . "</h2>";
+            echo "<p>Place: " . $row["place"] . "</p>";
+            echo "<p>Date: " . $row["date"] . "</p>";
+            echo "</div>";
+        }
+    } else {
+        echo "No blog posts found.";
+    }
+
+    // Close the connection
+    $conn->close();
+    ?>
+</body>
+</html>
